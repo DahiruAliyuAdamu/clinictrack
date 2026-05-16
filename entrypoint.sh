@@ -1,13 +1,15 @@
 #!/bin/bash
 
-# Clear cache
-php artisan cache:clear
-php artisan config:clear
-php artisan view:clear
+# Create storage link
+php artisan storage:link --force
 
-# Run migrations
-# The --force flag is required for production
+# Run migrations first
 php artisan migrate --force
+
+# Optimize for production
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
 
 # Execute the main container command
 exec "$@"
