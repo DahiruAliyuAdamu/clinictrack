@@ -6,6 +6,9 @@ php artisan storage:link --force
 # Run migrations first
 php artisan migrate --force
 
+# Ensure Roles exist (Safe to run multiple times)
+php artisan db:seed --class=UserSeeder --force
+
 # Optimize for production
 php artisan config:cache
 php artisan route:cache
