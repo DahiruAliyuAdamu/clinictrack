@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --clinic-primary: #0f766e; /* Professional Teal */
+        --clinic-secondary: #475569; /* Muted Slate for Text */
+        --clinic-accent: #0d9488; /* Vibrant but focused teal */
+        --clinic-bg: #ffffff; /* Pure white for a clean, clinical feel */
+        --clinic-surface: #f8fafc; /* Very light slate for surfaces */
+        --clinic-border: #e2e8f0; /* Soft borders */
+    }
+
+    body {
+        @apply antialiased bg-white text-slate-700 selection:bg-teal-100 selection:text-teal-900;
+        font-family: 'Outfit', sans-serif;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+    }
+}
+
+@layer components {
+    .clinic-card {
+        @apply bg-white rounded-3xl border border-slate-100/80 transition-all duration-500 hover:shadow-[0_20px_50px_-12px_rgba(15,118,110,0.08)] hover:-translate-y-1;
+    }
+
+    .btn-clinical {
+        @apply px-8 py-4 rounded-2xl font-semibold tracking-tight transition-all duration-300 active:scale-[0.98] inline-flex items-center justify-center;
+    }
+
+    .btn-clinical-primary {
+        @apply btn-clinical bg-teal-800 text-white hover:bg-teal-900 shadow-xl shadow-teal-900/10;
+    }
+
+    .btn-clinical-outline {
+        @apply btn-clinical border border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300;
+    }
+
+    .glass-nav {
+        @apply bg-white/90 backdrop-blur-xl sticky top-0 z-50 border-b border-slate-50/50;
+    }
+
+    .clinical-gradient {
+        background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+    }
+
+    .clinical-gradient-alt {
+        background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+    }
+
+    /* DataTables Refinements */
+    .dt-buttons .dt-button {
+        @apply !bg-white !border !border-slate-200 !text-slate-600 !rounded-xl !px-4 !py-2 !text-xs !font-bold !uppercase !tracking-widest !transition-all !shadow-sm hover:!bg-slate-50 hover:!border-slate-300 !mr-2;
+    }
+    
+    .dt-search input {
+        @apply !bg-white !border !border-slate-200 !rounded-xl !px-4 !py-2 !text-sm !font-medium !shadow-sm focus:!ring-teal-500 focus:!border-teal-500;
+    }
+
+    .dt-paging-button {
+        @apply !rounded-xl !border-none !px-4 !py-2 !text-xs !font-bold !uppercase !tracking-widest;
+    }
+
+    .dt-paging-button.current {
+        @apply !bg-teal-800 !text-white !shadow-lg !shadow-teal-900/10;
+    }
+
+    table.dataTable thead th {
+        @apply !bg-slate-50/50 !text-slate-400 !text-[10px] !font-bold !uppercase !tracking-[0.2em] !border-b !border-slate-100 !py-5;
+    }
+
+    table.dataTable tbody td {
+        @apply !py-5 !px-6 !text-sm !font-medium !text-slate-600 !border-b !border-slate-50;
+    }
+}
+
